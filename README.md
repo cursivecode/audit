@@ -1,6 +1,6 @@
 # audit
 
-A Clojure library for verify map data
+A Clojure library for verifying map data
 
 ## Installation
 
@@ -12,25 +12,25 @@ Add the following dependency to your `project.clj` file:
 
 ## Usage
 
-The ```audit``` function takes two maps, the ```audit-map``` and the ```value-map```
+The ```audit``` function takes two maps, the ```audit-map``` and the ```value-map```.
 
-If the two maps are don't have the same keys, the audit function will throw an exception.
+If the two maps don't have the same keys, the audit function will throw an exception.
 
-The value map will be normal data
+The ```value map``` will be normal data
 
 ```clojure
-  (def value-map {:url "http://www.somepage.com"
-                         :title "the number 1"
-                         :time 400})
+(def value-map {:url "http://www.somepage.com"
+                :title "the number 1"
+                :time 400})
 ```
 
-The audit map is a map consisting of keyword and vectors of functions.
+The ```audit map``` has a vector of functions as a value for each keyword.
 Each function will be ran on the input of the matching ```value-map``` keyword.
 
 ```clojure
 (def audit-map {:url [string? (regex #"http://www.")]
-                       :title [string? (regex #"\d")]
-                       :time [number? #(> % 300)]}
+                :title [string? (regex #"\d")]
+                :time [number? #(> % 300)]}
 ```
 
 The audit map does not reject empty collection, so the function must handle that possibility.
