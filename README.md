@@ -7,7 +7,7 @@ A Clojure library for verifying map data
 Add the following dependency to your `project.clj` file:
 
 ```
-  [audit "0.1.0"]
+  [audit "0.1.1"]
 ```
 
 ## Usage

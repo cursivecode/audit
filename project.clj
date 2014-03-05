@@ -1,4 +1,4 @@
-(defproject audit "0.1.0"
+(defproject audit "0.1.1"
   :description "Clojure Library for verifying maps"
   :url "http://github.com/cursivecode/audit"
   :license {:name "Eclipse Public License"
