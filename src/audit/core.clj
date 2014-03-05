@@ -20,7 +20,8 @@
    vector and applies the true or false value to the map,
    under the key valid-audit."
   [value-map [k v]]
-  (when (:valid-audit value-map)
+  (if-not (:valid-audit value-map)
+    value-map
     (let [input (get value-map k)
           result (every? #(truthy (% input)) v)]
       (if result
